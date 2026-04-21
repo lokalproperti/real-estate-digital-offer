@@ -95,14 +95,8 @@
         
         <!-- SCENE 1: HERO (WITH WATERMARK CROP) -->
         <section id="scene1" class="px-4 text-center overflow-hidden">
-            <div class="absolute inset-0 z-0 overflow-hidden">
-                <video autoplay muted loop playsinline poster="hero-dekstop-cover.jpg" class="hidden md:block w-full h-full object-cover">
-                    <source src="hero-dekstop.mp4" type="video/mp4">
-                </video>
-                <!-- VIDEO MOBILE (Muncul hanya di layar HP) -->
-                <video autoplay muted loop playsinline poster="hero-dekstop-cover.jpg" class="block md:hidden w-full h-full object-cover">
-                    <source src="hero-mobile.mp4" type="video/mp4">
-                </video>
+            <div class="absolute inset-0 z-0">
+                <video autoplay muted loop playsinline poster="hero-dekstop-cover.jpg" class="hidden md:block w-full h-full object-cover"></video>
             </div>
             <div class="absolute inset-0 bg-black/40 z-10"></div>
             <div class="relative z-20 text-white">
@@ -234,10 +228,25 @@
         </section>
     </div>
 
-    <!-- Script Kecepatan Video -->
-    <script>
-        const v = document.querySelector('video');
-        if (v) { v.playbackRate = 0.8; } // Membuat video drone terasa lebih sinematik
-    </script>
+<script>
+    function loadCorrectVideo() {
+        const video = document.getElementById('heroVideo');
+        const desktopSrc = 'hero-dekstop.mp4'; // Pastikan nama filenya sama (dekstop)
+        const mobileSrc = 'hero-mobile.mp4';
+        
+        // Cek lebar layar
+        if (window.innerWidth >= 768) {
+            video.src = desktopSrc;
+        } else {
+            video.src = mobileSrc;
+        }
+        
+        video.load(); // Perintahkan browser untuk memuat file yang terpilih saja
+        //video.playbackRate = 0.8; // Efek lambat biar mewah
+    }
+
+    // Jalankan saat halaman pertama kali dibuka
+    loadCorrectVideo();
+</script>
 </body>
 </html>
