@@ -96,9 +96,12 @@
         <!-- SCENE 1: HERO (WITH WATERMARK CROP) -->
         <section id="scene1" class="px-4 text-center overflow-hidden">
             <div class="absolute inset-0 z-0 overflow-hidden">
-                <!-- Scale 130% & Origin Right Bottom untuk sembunyikan watermark Minimax -->
-                <video poster="hero-drone.jpg" autoplay muted loop playsinline class="w-full h-full object-cover origin-bottom-right">
-                    <source src="hero-drone.mp4" type="video/mp4">
+                <video autoplay muted loop playsinline poster="hero-dekstop-cover.jpg" class="hidden md:block w-full h-full object-cover">
+                    <source src="hero-dekstop.mp4" type="video/mp4">
+                </video>
+                <!-- VIDEO MOBILE (Muncul hanya di layar HP) -->
+                <video autoplay muted loop playsinline poster="hero-dekstop-cover.jpg" class="block md:hidden w-full h-full object-cover">
+                    <source src="hero-mobile.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="absolute inset-0 bg-black/40 z-10"></div>
