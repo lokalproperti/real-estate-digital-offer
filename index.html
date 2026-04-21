@@ -96,7 +96,7 @@
         <!-- SCENE 1: HERO (WITH WATERMARK CROP) -->
         <section id="scene1" class="px-4 text-center overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <video id="heroVideo" autoplay muted loop playsinline poster="hero-dekstop-cover.jpg" class="hidden md:block w-full h-full object-cover"></video>
+                <video id="heroVideo" autoplay muted loop playsinline poster="hero-dekstop-cover.jpg" class="w-full h-full object-cover"></video>
             </div>
             <div class="absolute inset-0 bg-black/40 z-10"></div>
             <div class="relative z-20 text-white">
@@ -227,26 +227,50 @@
             </div>
         </section>
     </div>
-
 <script>
-    function loadCorrectVideo() {
+    function loadAndPlayVideo() {
         const video = document.getElementById('heroVideo');
-        const desktopSrc = 'hero-dekstop.mp4'; // Pastikan nama filenya sama (dekstop)
+        if (!video) return;
+
+        const desktopSrc = 'hero-dekstop.mp4';
         const mobileSrc = 'hero-mobile.mp4';
         
-        // Cek lebar layar
-        if (window.innerWidth >= 768) {
-            video.src = desktopSrc;
-        } else {
-            video.src = mobileSrc;
-        }
+        // 1. Pilih Sumber Berdasarkan Ukuran Layar
+        const selectedSrc = (window.innerWidth >= 768) ? desktopSrc : mobileSrc;
         
-        video.load(); // Perintahkan browser untuk memuat file yang terpilih saja
-        //video.playbackRate = 0.8; // Efek lambat biar mewah
+        // 2. Set Source dan Pastikan Muted (Wajib untuk Autoplay)
+        video.src = selectedSrc;
+        video.muted = true; 
+        video.playbackRate = 0.8;
+
+        // 3. Eksekusi Play dengan Penanganan Error (Penting untuk Safari/Firefox)
+        const playPromise = video.play();
+
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+                // Autoplay berhasil
+                console.log("Autoplay started successfully");
+            }).catch(error => {
+                // Autoplay diblokir, coba trigger ulang saat ada interaksi pertama
+                console.log("Autoplay prevented, waiting for interaction");
+                document.addEventListener('touchstart', () => { video.play(); }, {once: true});
+                document.addEventListener('mousedown', () => { video.play(); }, {once: true});
+            });
+        }
     }
 
-    // Jalankan saat halaman pertama kali dibuka
-    loadCorrectVideo();
+    // Jalankan saat DOM siap
+    window.addEventListener('DOMContentLoaded', loadAndPlayVideo);
+    
+    // Opsional: Muat ulang jika user merubah ukuran layar (resize)
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            // Hanya reload jika pindah dari mobile ke desktop atau sebaliknya
+            loadAndPlayVideo();
+        }, 250);
+    });
 </script>
 </body>
 </html>
