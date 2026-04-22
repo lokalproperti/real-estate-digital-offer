@@ -144,59 +144,60 @@
             </div>
         </section>
 
-        <!-- SCENE 3: FORM -->
+        <!-- SCENE 3: THE FORM -->
         <section id="scene3" class="bg-[#fcfcfc] py-20 px-4 overflow-y-auto">
             <div class="max-w-4xl w-full mx-auto">
-                <!-- GANTI 'your-id' DENGAN ID FORMSPREE ANDA -->
-                <form action="https://formspree.io/f/your-id" method="POST" class="glass-panel p-6 md:p-12 shadow-2xl rounded-sm">
+                <form id="offerForm" class="glass-panel p-6 md:p-12 shadow-2xl rounded-sm">
+                    
+                    <!-- CONFIGURATION: GANTI EMAIL AGEN DISINI -->
+                    <input type="hidden" name="agent_email" value="agung.setiawan.wiroto@gmail.com">
+                    <input type="hidden" name="property_address" value="12 Smith St, Mosman">
+
                     <h2 class="text-2xl md:text-4xl mb-10 text-center serif tracking-tight">Your Purchase Details</h2>
                     
                     <div class="grid md:grid-cols-2 gap-8">
-                        <!-- Kiri -->
                         <div class="space-y-6">
                             <div>
-                                <label class="block text-[10px] uppercase tracking-widest font-bold text-gray-400 mb-2">Property Address</label>
-                                <input type="text" name="property_address" value="12 Smith St, Mosman" readonly class="w-full border-b border-gray-200 py-2 bg-transparent outline-none font-semibold text-gray-600">
+                                <label class="block text-[10px] uppercase font-bold text-gray-400 mb-2">Property</label>
+                                <input type="text" value="12 Smith St, Mosman" readonly class="w-full border-b border-gray-200 py-1 bg-transparent outline-none font-semibold text-gray-600">
                             </div>
                             <div>
-                                <label class="block text-[10px] uppercase tracking-widest font-bold mb-2">Buyer Full Name(s)</label>
-                                <input type="text" name="buyer_names" required placeholder="Full Name(s)" class="w-full border-b border-gray-300 py-2 focus:border-[#C5A059] outline-none">
+                                <label class="block text-[10px] uppercase font-bold mb-2">Buyer Name(s)</label>
+                                <input type="text" name="buyer_names" required placeholder="e.g. Jane Doe" class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
                             </div>
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-[10px] uppercase tracking-widest font-bold mb-2">Email Address</label>
-                                    <input type="email" name="email" required placeholder="Email" class="w-full border-b border-gray-300 py-2 focus:border-[#C5A059] outline-none text-sm">
+                                    <label class="block text-[10px] uppercase font-bold mb-2">Email Address</label>
+                                    <input type="email" name="email" required placeholder="Email" class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
                                 </div>
                                 <div>
-                                    <label class="block text-[10px] uppercase tracking-widest font-bold mb-2">Phone Number</label>
-                                    <input type="tel" name="phone" required placeholder="Phone" class="w-full border-b border-gray-300 py-2 focus:border-[#C5A059] outline-none text-sm">
+                                    <label class="block text-[10px] uppercase font-bold mb-2">Phone Number</label>
+                                    <input type="tel" name="phone" required placeholder="Phone" class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Kanan -->
                         <div class="space-y-6">
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-[10px] uppercase tracking-widest font-bold mb-2">Offer Price ($)</label>
-                                    <input type="text" name="offer_price" placeholder="e.g. 5.5M" required class="w-full border-b border-gray-300 py-2 focus:border-[#C5A059] outline-none">
+                                    <label class="block text-[10px] uppercase font-bold mb-2">Offer Price ($)</label>
+                                    <input type="text" name="offer_price" placeholder="Amount" required class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
                                 </div>
                                 <div>
-                                    <label class="block text-[10px] uppercase tracking-widest font-bold mb-2">Deposit Amount</label>
-                                    <input type="text" name="deposit" placeholder="e.g. 10%" class="w-full border-b border-gray-300 py-2 focus:border-[#C5A059] outline-none">
+                                    <label class="block text-[10px] uppercase font-bold mb-2">Deposit Amount</label>
+                                    <input type="text" name="deposit" placeholder="10%" class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-[10px] uppercase tracking-widest font-bold mb-2">Settlement Period</label>
-                                <select name="settlement" class="w-full border-b border-gray-300 py-2 bg-transparent outline-none text-sm">
+                                <label class="block text-[10px] uppercase font-bold mb-2">Settlement Period</label>
+                                <select name="settlement" class="w-full border-b border-gray-300 py-1 bg-transparent outline-none text-sm">
                                     <option value="30 Days">30 Days</option>
                                     <option value="60 Days" selected>60 Days</option>
                                     <option value="90 Days">90 Days</option>
                                 </select>
                             </div>
-                            <!-- Custom Toggles -->
                             <div class="flex flex-col gap-4 pt-4">
-                                <label class="flex items-center cursor-pointer text-[10px] uppercase tracking-widest font-bold">
+                                <label class="flex items-center cursor-pointer text-[10px] uppercase font-bold">
                                     <div class="relative w-8 h-4 mr-3">
                                         <input type="checkbox" name="subject_to_finance" class="sr-only peer">
                                         <div class="w-full h-full bg-gray-200 rounded-full peer-checked:bg-[#C5A059] transition-colors"></div>
@@ -204,8 +205,7 @@
                                     </div>
                                     Subject to Finance
                                 </label>
-
-                                <label class="flex items-center cursor-pointer text-[10px] uppercase tracking-widest font-bold">
+                                <label class="flex items-center cursor-pointer text-[10px] uppercase font-bold">
                                     <div class="relative w-8 h-4 mr-3">
                                         <input type="checkbox" name="subject_to_inspection" class="sr-only peer">
                                         <div class="w-full h-full bg-gray-200 rounded-full peer-checked:bg-[#C5A059] transition-colors"></div>
@@ -217,67 +217,85 @@
                         </div>
                     </div>
 
-                    <div class="mt-8">
-                        <label class="block text-[10px] uppercase tracking-widest font-bold text-gray-400 mb-2">Additional Comments/Terms</label>
-                        <textarea name="comments" rows="2" class="w-full border-b border-gray-300 py-2 focus:border-[#C5A059] outline-none resize-none bg-transparent text-sm"></textarea>
-                    </div>
-
                     <div class="mt-12 text-center">
-                        <button type="submit" class="btn-gold w-full py-5 text-black font-bold text-xs uppercase tracking-[0.3em] shadow-xl hover:scale-[1.01] transform transition active:scale-95">
+                        <div id="statusMsg" class="mb-4 text-sm font-semibold"></div>
+                        <button type="submit" id="submitBtn" class="btn-gold w-full py-5 text-black font-bold text-xs uppercase tracking-[0.3em] shadow-xl transform transition active:scale-95">
                             Submit Formal Expression of Interest
                         </button>
-                        <p class="mt-6 text-[9px] text-gray-400 uppercase tracking-widest leading-relaxed">
-                            Initial EOI only. Not a legally binding contract.
-                        </p>
                     </div>
                 </form>
             </div>
         </section>
     </div>
-<script>
-    function loadAndPlayVideo() {
-        const video = document.getElementById('heroVideo');
-        if (!video) return;
+    <script>
+        function loadAndPlayVideo() {
+            const video = document.getElementById('heroVideo');
+            if (!video) return;
 
-        const desktopSrc = 'hero-desktop.mp4';
-        const mobileSrc = 'hero-mobile.mp4';
-        
-        // 1. Pilih Sumber Berdasarkan Ukuran Layar
-        const selectedSrc = (window.innerWidth >= 768) ? desktopSrc : mobileSrc;
-        
-        // 2. Set Source dan Pastikan Muted (Wajib untuk Autoplay)
-        video.src = selectedSrc;
-        video.muted = true; 
-        video.playbackRate = 0.8;
+            const desktopSrc = 'hero-desktop.mp4';
+            const mobileSrc = 'hero-mobile.mp4';
+            
+            // 1. Pilih Sumber Berdasarkan Ukuran Layar
+            const selectedSrc = (window.innerWidth >= 768) ? desktopSrc : mobileSrc;
+            
+            // 2. Set Source dan Pastikan Muted (Wajib untuk Autoplay)
+            video.src = selectedSrc;
+            video.muted = true; 
+            video.playbackRate = 0.8;
 
-        // 3. Eksekusi Play dengan Penanganan Error (Penting untuk Safari/Firefox)
-        const playPromise = video.play();
+            // 3. Eksekusi Play dengan Penanganan Error (Penting untuk Safari/Firefox)
+            const playPromise = video.play();
 
-        if (playPromise !== undefined) {
-            playPromise.then(_ => {
-                // Autoplay berhasil
-                console.log("Autoplay started successfully");
-            }).catch(error => {
-                // Autoplay diblokir, coba trigger ulang saat ada interaksi pertama
-                console.log("Autoplay prevented, waiting for interaction");
-                document.addEventListener('touchstart', () => { video.play(); }, {once: true});
-                document.addEventListener('mousedown', () => { video.play(); }, {once: true});
-            });
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Autoplay berhasil
+                    console.log("Autoplay started successfully");
+                }).catch(error => {
+                    // Autoplay diblokir, coba trigger ulang saat ada interaksi pertama
+                    console.log("Autoplay prevented, waiting for interaction");
+                    document.addEventListener('touchstart', () => { video.play(); }, {once: true});
+                    document.addEventListener('mousedown', () => { video.play(); }, {once: true});
+                });
+            }
         }
-    }
 
-    // Jalankan saat DOM siap
-    window.addEventListener('DOMContentLoaded', loadAndPlayVideo);
-    
-    // Opsional: Muat ulang jika user merubah ukuran layar (resize)
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            // Hanya reload jika pindah dari mobile ke desktop atau sebaliknya
-            loadAndPlayVideo();
-        }, 250);
-    });
-</script>
+        // Jalankan saat DOM siap
+        window.addEventListener('DOMContentLoaded', loadAndPlayVideo);
+        
+        // Opsional: Muat ulang jika user merubah ukuran layar (resize)
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // Hanya reload jika pindah dari mobile ke desktop atau sebaliknya
+                loadAndPlayVideo();
+            }, 250);
+        });
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyq5jrhqNmIW6yxoXrhx4skq-bEb3EpNMaqgSO6Tv7Sh4Z8HpW-NqzDYTrcRM_ue-w/exec';
+        const form = document.getElementById('offerForm');
+        const statusMsg = document.getElementById('statusMsg');
+        const btn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.disabled = true;
+        statusMsg.innerHTML = "Sending your offer...";
+        statusMsg.className = "mb-4 text-sm font-semibold text-gray-500";
+        
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                statusMsg.innerHTML = "Success! Your offer has been transmitted.";
+                statusMsg.className = "mb-4 text-sm font-semibold text-green-600";
+                form.reset();
+                btn.disabled = false;
+            })
+            .catch(error => {
+                statusMsg.innerHTML = "Error! Please try again.";
+                statusMsg.className = "mb-4 text-sm font-semibold text-red-600";
+                btn.disabled = false;
+            });
+        });
+    </script>
 </body>
 </html>
