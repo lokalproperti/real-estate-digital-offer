@@ -313,7 +313,7 @@
         window.addEventListener('DOMContentLoaded', playHeroVideo);
 
         // E. GOOGLE APPS SCRIPT SUBMISSION (DIRECT REPLY ENABLED)
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbygLHjFgxavXPdmSH2e-ajmlANrAaue8-iyJH3oii3Tmo0EjU01xYWwIFH-O2TxHy3W/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzcLil5i6l9vzvi3S_wBVmXuXqdrooJqUlDALxYmCPyZsAG-ll7xnhKDxpCe4CGx5UR/exec';
         const form = document.getElementById('offerForm');
         form.addEventListener('submit', e => {
             e.preventDefault();
@@ -323,18 +323,24 @@
             status.innerHTML = "TRANSMITTING SECURE OFFER...";
             status.className = "mb-4 text-sm font-semibold text-gray-500 animate-pulse";
             
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(() => {
-                    status.innerHTML = "✅ SUCCESS! YOUR OFFER HAS BEEN SENT.";
-                    status.className = "mb-4 text-sm font-semibold text-green-600";
-                    form.reset();
-                    btn.disabled = false;
-                })
-                .catch(() => {
-                    status.innerHTML = "❌ ERROR. PLEASE TRY AGAIN.";
-                    status.className = "mb-4 text-sm font-semibold text-red-600";
-                    btn.disabled = false;
-                });
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form),
+                mode: 'no-cors' // <--- Tambahkan baris ini untuk melewati blokir browser
+            })
+            .then(() => {
+                // Karena mode 'no-cors', browser tidak bisa baca respon 'success'
+                // Jadi kita langsung anggap sukses jika tidak ada error koneksi
+                statusMsg.innerHTML = "SUCCESS! YOUR OFFER HAS BEEN TRANSMITTED.";
+                statusMsg.className = "mb-4 text-sm font-semibold text-green-600";
+                form.reset();
+                btn.disabled = false;
+            })
+            .catch(error => {
+                statusMsg.innerHTML = "ERROR. PLEASE TRY AGAIN.";
+                statusMsg.className = "mb-4 text-sm font-semibold text-red-600";
+                btn.disabled = false;
+            });
         });
     </script>
 </body>
