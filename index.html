@@ -255,14 +255,34 @@
 
         // B. SMART PHONE FORMATTER (MOBILE VS LANDLINE AU)
         const phoneInput = document.getElementById('phone');
+        let isDeleting = false;
+
+        // Cek apakah user sedang menghapus atau mengetik
+        phoneInput.addEventListener('keydown', (e) => {
+            isDeleting = e.key === 'Backspace';
+        });
+
         phoneInput.addEventListener('input', (e) => {
+            if (isDeleting) return; // Jika sedang hapus, jangan paksa format ulang
+
             let num = e.target.value.replace(/\D/g, '');
             let fmt = '';
-            if (num.startsWith('04')) { // Mobile format
-                fmt = num.substring(0, 4) + (num.length > 4 ? ' ' + num.substring(4, 7) : '') + (num.length > 7 ? ' ' + num.substring(7, 10) : '');
-            } else if (['02', '03', '07', '08'].includes(num.substring(0, 2))) { // Landline format
-                fmt = '(' + num.substring(0, 2) + ') ' + num.substring(2, 6) + (num.length > 6 ? ' ' + num.substring(6, 10) : '');
-            } else { fmt = num; }
+
+            if (num.startsWith('04')) { 
+                // FORMAT MOBILE: 04XX XXX XXX
+                if (num.length <= 4) fmt = num;
+                else if (num.length <= 7) fmt = num.substring(0, 4) + ' ' + num.substring(4);
+                else fmt = num.substring(0, 4) + ' ' + num.substring(4, 7) + ' ' + num.substring(7, 10);
+            } else if (['02', '03', '07', '08'].includes(num.substring(0, 2))) { 
+                // FORMAT LANDLINE: (0X) XXXX XXXX
+                // Hanya pasang kurung jika angka sudah lebih dari 2 (biar bisa dihapus pas sisa 08)
+                if (num.length <= 2) fmt = num; 
+                else if (num.length <= 6) fmt = '(' + num.substring(0, 2) + ') ' + num.substring(2);
+                else fmt = '(' + num.substring(0, 2) + ') ' + num.substring(2, 6) + ' ' + num.substring(6, 10);
+            } else {
+                fmt = num;
+            }
+            
             e.target.value = fmt;
         });
 
