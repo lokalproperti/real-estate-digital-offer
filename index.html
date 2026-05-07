@@ -92,7 +92,7 @@
 </head>
 <body>
 
-    <!-- SIDE NAVIGATION (JUMP LINKS) -->
+    <!-- NAV JUMP LINKS -->
     <nav class="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-10">
         <a href="#scene1" class="nav-link active">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
@@ -106,34 +106,30 @@
     </nav>
 
     <div class="snap-container">
-        
-        <!-- SCENE 1: THE HERO HOOK (LIGHT THEME) -->
-        <section id="scene1" class="px-4 text-center overflow-hidden bg-white">
+        <!-- SCENE 1 & 2 Tetap Sama, Langsung ke SCENE 3 -->
+        <section id="scene1" class="px-4 text-center overflow-hidden">
             <div class="absolute inset-0 z-0">
                 <video id="heroVideo" autoplay muted loop playsinline poster="hero-cover.jpg" class="w-full h-full object-cover"></video>
             </div>
-            <div class="absolute inset-0 bg-black/30 z-10"></div>
+            <div class="absolute inset-0 bg-black/40 z-10"></div>
             <div class="relative z-20 text-white">
                 <h1 class="text-4xl md:text-7xl mb-4 leading-tight">Secure Your Future at <br><span class="italic">Cowles Rd, Mosman</span></h1>
                 <p class="text-xs md:text-xl font-light tracking-[0.3em] uppercase opacity-90">A Private Digital Offer Suite</p>
             </div>
             <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-scroll z-20 text-white text-center">
-                <p class="text-[10px] uppercase tracking-widest mb-2 opacity-60">Scroll to Explore</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M19 9l-7 7-7-7" stroke-width="2" /></svg>
+                <p class="text-[10px] uppercase tracking-widest mb-2 opacity-60">Scroll</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
             </div>
         </section>
 
-        <!-- SCENE 2: AGENT TRUST -->
-        <section id="scene2" class="bg-white py-12 px-6">
+        <section id="scene2" class="bg-white py-12 px-6 overflow-y-auto md:overflow-hidden">
             <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center max-w-6xl mt-8">
-                <!-- PHOTO SIDE -->
                 <div class="flex justify-center md:justify-end order-2 md:order-1">
                     <div class="image-frame-container">
                         <div class="gold-border-back"></div>
-                        <img src="https://images.pexels.com/photos/3778680/pexels-photo-3778680.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Listing Agent" class="agent-image shadow-2xl">
+                        <img src="https://images.pexels.com/photos/3778680/pexels-photo-3778680.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Agent" class="agent-image shadow-2xl">
                     </div>
                 </div>
-                <!-- TEXT SIDE -->
                 <div class="text-center md:text-left order-1 md:order-2">
                     <h2 class="text-4xl md:text-6xl mb-6">Expert Guidance.</h2>
                     <p class="text-xl gold-accent font-semibold mb-1">John Smith</p>
@@ -146,18 +142,17 @@
             </div>
         </section>
 
-        <!-- SCENE 3: SMART FORM -->
+        <!-- SCENE 3: FORM -->
         <section id="scene3" class="bg-[#fcfcfc] py-20 px-4 overflow-y-auto">
             <div class="max-w-4xl w-full mx-auto">
                 <form id="offerForm" class="glass-panel p-6 md:p-12 shadow-2xl rounded-sm">
-                    <!-- CONFIGURATION FOR GOOGLE SCRIPT -->
-                    <input type="hidden" name="agent_email" value="8703389@gmail.com">
+                    <!-- GANTI VALUE INI DENGAN EMAIL AGEN TUJUAN -->
+                    <input type="hidden" name="agent_email" value="email_agen_tujuan@gmail.com">
                     <input type="hidden" name="property_address" value="Cowles Rd, Mosman">
 
-                    <h2 class="text-4xl md:text-6xl mb-10 text-center serif tracking-tight">Offer Details</h2>
+                    <h2 class="text-2xl md:text-4xl mb-10 text-center serif tracking-tight font-bold uppercase text-black">Offer Details</h2>
                     
                     <div class="grid md:grid-cols-2 gap-8">
-                        <!-- LEFT FORM COLUMN -->
                         <div class="space-y-6">
                             <div>
                                 <label class="block text-[10px] uppercase font-bold text-gray-400 mb-2">Listing</label>
@@ -165,32 +160,29 @@
                             </div>
                             <div>
                                 <label class="block text-[10px] uppercase font-bold mb-2">Buyer Full Name(s)</label>
-                                <input type="text" name="buyer_names" required placeholder="Full Name" class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
+                                <input type="text" name="buyer_names" required class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
                             </div>
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-[10px] uppercase font-bold mb-2">Email Address</label>
-                                    <input type="email" name="email" required placeholder="Email" class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
+                                    <label class="block text-[10px] uppercase font-bold mb-2">Email</label>
+                                    <input type="email" name="email" required class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
                                 </div>
                                 <div>
-                                    <label class="block text-[10px] uppercase font-bold mb-2">Phone Number</label>
-                                    <!-- ID phone for JS formatting -->
-                                    <input type="tel" id="phone" name="phone" required placeholder="04XX XXX XXX" class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
+                                    <label class="block text-[10px] uppercase font-bold mb-2">Phone</label>
+                                    <input type="tel" id="phone" name="phone" required class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
                                 </div>
                             </div>
                         </div>
 
-                        <!-- RIGHT FORM COLUMN -->
                         <div class="space-y-6">
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-[10px] uppercase font-bold mb-2">Offer Price ($)</label>
-                                    <!-- ID offer_price for JS formatting -->
-                                    <input type="text" id="offer_price" name="offer_price" placeholder="0" required class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
+                                    <input type="text" id="offer_price" name="offer_price" required class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
                                 </div>
                                 <div>
-                                    <label class="block text-[10px] uppercase font-bold mb-2">Deposit Amount</label>
-                                    <input type="text" name="deposit" placeholder="10%" class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
+                                    <label class="block text-[10px] uppercase font-bold mb-2">Deposit</label>
+                                    <input type="text" name="deposit" class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
                                 </div>
                             </div>
                             <div>
@@ -201,7 +193,6 @@
                                     <option value="90 Days">90 Days</option>
                                 </select>
                             </div>
-                            <!-- TOGGLE SWITCHES -->
                             <div class="flex flex-col gap-4 pt-4">
                                 <label class="flex items-center cursor-pointer text-[10px] uppercase font-bold">
                                     <div class="relative w-8 h-4 mr-3">
@@ -217,130 +208,100 @@
                                         <div class="w-full h-full bg-gray-200 rounded-full peer-checked:bg-[#C5A059] transition-colors"></div>
                                         <div class="absolute top-1 left-1 w-2 h-2 bg-white rounded-full transition-transform peer-checked:translate-x-4"></div>
                                     </div>
-                                    Building & Pest Inspection
+                                    Subject to Inspection
                                 </label>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- COMMENTS -->
                     <div class="mt-8">
-                        <label class="block text-[10px] uppercase font-bold text-gray-400 mb-2 font-bold">Additional Comments</label>
+                        <label class="block text-[10px] uppercase font-bold text-gray-400 mb-2">Comments</label>
                         <textarea name="comments" rows="2" class="w-full border-b border-gray-200 py-1 bg-transparent outline-none focus:border-[#C5A059] resize-none text-sm"></textarea>
                     </div>
 
-                    <!-- SUBMIT & STATUS -->
-                    <div class="mt-6 text-center">
+                    <div class="mt-12 text-center">
                         <div id="statusMsg" class="mb-4 text-sm font-semibold"></div>
                         <button type="submit" id="submitBtn" class="btn-gold w-full py-5 text-black font-bold text-xs uppercase tracking-[0.3em] shadow-xl transform transition active:scale-95">
                             Submit Formal Expression of Interest
                         </button>
-                        <p class="mt-6 text-[9px] text-gray-400 uppercase tracking-widest leading-relaxed">
-                            Disclaimer: This is an initial EOI and does not constitute a legally binding contract.
-                        </p>
                     </div>
                 </form>
             </div>
         </section>
     </div>
 
-    <!-- JAVASCRIPT LOGIC CENTER -->
     <script>
-        // A. SMART INPUT MASKING (PRICE)
+        // --- INPUT FORMATTING ---
         const priceInput = document.getElementById('offer_price');
         priceInput.addEventListener('input', (e) => {
             let val = e.target.value.replace(/\D/g, "");
             if (val) e.target.value = new Intl.NumberFormat('en-AU').format(val);
         });
 
-        // B. SMART PHONE FORMATTER (MOBILE VS LANDLINE AU)
         const phoneInput = document.getElementById('phone');
         let isDeleting = false;
-
-        // Cek apakah user sedang menghapus atau mengetik
-        phoneInput.addEventListener('keydown', (e) => {
-            isDeleting = e.key === 'Backspace';
-        });
-
+        phoneInput.addEventListener('keydown', (e) => { isDeleting = e.key === 'Backspace'; });
         phoneInput.addEventListener('input', (e) => {
-            if (isDeleting) return; // Jika sedang hapus, jangan paksa format ulang
-
+            if (isDeleting) return;
             let num = e.target.value.replace(/\D/g, '');
             let fmt = '';
-
-            if (num.startsWith('04')) { 
-                // FORMAT MOBILE: 04XX XXX XXX
-                if (num.length <= 4) fmt = num;
-                else if (num.length <= 7) fmt = num.substring(0, 4) + ' ' + num.substring(4);
-                else fmt = num.substring(0, 4) + ' ' + num.substring(4, 7) + ' ' + num.substring(7, 10);
-            } else if (['02', '03', '07', '08'].includes(num.substring(0, 2))) { 
-                // FORMAT LANDLINE: (0X) XXXX XXXX
-                // Hanya pasang kurung jika angka sudah lebih dari 2 (biar bisa dihapus pas sisa 08)
-                if (num.length <= 2) fmt = num; 
+            if (num.startsWith('04')) {
+                fmt = num.substring(0, 4) + (num.length > 4 ? ' ' + num.substring(4, 7) : '') + (num.length > 7 ? ' ' + num.substring(7, 10) : '');
+            } else if (['02', '03', '07', '08'].includes(num.substring(0, 2))) {
+                if (num.length <= 2) fmt = num;
                 else if (num.length <= 6) fmt = '(' + num.substring(0, 2) + ') ' + num.substring(2);
                 else fmt = '(' + num.substring(0, 2) + ') ' + num.substring(2, 6) + ' ' + num.substring(6, 10);
-            } else {
-                fmt = num;
-            }
-            
+            } else { fmt = num; }
             e.target.value = fmt;
         });
 
-        // C. JUMPLINK OBSERVER (AUTO-ACTIVE ON SCROLL)
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
+        // --- JUMPLINK ACTIVE ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    navLinks.forEach(link => {
+                    document.querySelectorAll('.nav-link').forEach(link => {
                         link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
                     });
                 }
             });
         }, { threshold: 0.6 });
-        sections.forEach(s => observer.observe(s));
+        document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-        // D. DYNAMIC VIDEO LOADER (DEVICE DETECTION)
+        // --- VIDEO PLAYBACK ---
         function playHeroVideo() {
             const v = document.getElementById('heroVideo');
             if (!v) return;
             v.src = (window.innerWidth >= 768) ? 'hero-desktop.mp4' : 'hero-mobile.mp4';
-            v.playbackRate = 0.8; // Luxury slow motion
+            v.playbackRate = 0.8;
             v.play().catch(() => {
                 document.addEventListener('touchstart', () => v.play(), {once: true});
             });
         }
         window.addEventListener('DOMContentLoaded', playHeroVideo);
 
-        // E. GOOGLE APPS SCRIPT SUBMISSION (DIRECT REPLY ENABLED)
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzcLil5i6l9vzvi3S_wBVmXuXqdrooJqUlDALxYmCPyZsAG-ll7xnhKDxpCe4CGx5UR/exec';
+        // --- FORM SUBMISSION ---
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxvlemL083cnGgRpedQiahV28ejR7oiOoAZLLzuyuGZbq-beWt4Ow6KC8mqVsOnYCdp/exec';
         const form = document.getElementById('offerForm');
         form.addEventListener('submit', e => {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
             const status = document.getElementById('statusMsg');
             btn.disabled = true;
-            status.innerHTML = "TRANSMITTING SECURE OFFER...";
-            status.className = "mb-4 text-sm font-semibold text-gray-500 animate-pulse";
+            status.innerHTML = "SENDING OFFER...";
+            status.className = "mb-4 text-sm font-semibold text-gray-400 animate-pulse";
             
-            fetch(scriptURL, { 
-                method: 'POST', 
-                body: new FormData(form),
-                mode: 'no-cors' // <--- Tambahkan baris ini untuk melewati blokir browser
-            })
-            .then(() => {
-                // Karena mode 'no-cors', browser tidak bisa baca respon 'success'
-                // Jadi kita langsung anggap sukses jika tidak ada error koneksi
-                statusMsg.innerHTML = "SUCCESS! YOUR OFFER HAS BEEN TRANSMITTED.";
-                statusMsg.className = "mb-4 text-sm font-semibold text-green-600";
-                form.reset();
-                btn.disabled = false;
-            })
-            .catch(error => {
-                statusMsg.innerHTML = "ERROR. PLEASE TRY AGAIN.";
-                statusMsg.className = "mb-4 text-sm font-semibold text-red-600";
-                btn.disabled = false;
-            });
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(() => {
+                    status.innerHTML = "✅ SUCCESS! OFFER SENT TO AGENT.";
+                    status.className = "mb-4 text-sm font-semibold text-green-600";
+                    form.reset();
+                    btn.disabled = false;
+                })
+                .catch(() => {
+                    status.innerHTML = "❌ ERROR. PLEASE TRY AGAIN.";
+                    status.className = "mb-4 text-sm font-semibold text-red-600";
+                    btn.disabled = false;
+                });
         });
     </script>
 </body>
