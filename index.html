@@ -182,7 +182,7 @@
                                 </div>
                                 <div>
                                     <label class="block text-[10px] uppercase font-bold mb-2">Deposit</label>
-                                    <input type="text" name="deposit" class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
+                                    <input type="text" id="deposit" name="deposit" placeholder="e.g. 10% or 50,000" class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
                                 </div>
                             </div>
                             <div>
@@ -278,7 +278,23 @@
             });
         }
         window.addEventListener('DOMContentLoaded', playHeroVideo);
+        // --- DEPOSIT INPUT FORMATTING--
+        const depositInput = document.getElementById('deposit');
 
+        depositInput.addEventListener('input', (e) => {
+            let val = e.target.value;
+
+            // Jika user mengetik simbol % atau huruf, biarkan saja (jangan diformat ribuan)
+            if (/[a-zA-Z%]/.test(val)) {
+                return; 
+            }
+
+            // Jika user hanya mengetik angka, format jadi ribuan otomatis
+            let num = val.replace(/\D/g, ""); // Ambil angkanya saja
+            if (num) {
+                e.target.value = new Intl.NumberFormat('en-AU').format(num);
+            }
+        });
         // --- FORM SUBMISSION ---
         const scriptURL = 'https://script.google.com/macros/s/AKfycbw6bsPQv5u64CeMfkTzseVG7Ya8PBHwqqnnyqqsarFrVGr_cNnds-8CQVnkoCZrCkZ_/exec';
         const form = document.getElementById('offerForm');
