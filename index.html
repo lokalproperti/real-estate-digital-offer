@@ -185,46 +185,44 @@
                                     <input type="text" id="deposit" name="deposit" placeholder="e.g. 10% or 50,000" class="w-full border-b border-gray-300 py-1 focus:border-[#C5A059] outline-none">
                                 </div>
                             </div>
-                            <div class="grid grid-cols-2 md:grid-cols-1 gap-x-4 items-end">
-                                <div>
-                                    <label class="block text-[10px] uppercase font-bold mb-2">Settlement Period</label>
-                                    <select name="settlement" class="w-full border-b border-gray-300 py-1 bg-transparent outline-none text-sm">
-                                        <option value="30 Days">30 Days</option>
-                                        <option value="60 Days" selected>60 Days</option>
-                                        <option value="90 Days">90 Days</option>
-                                    </select>
-                                </div>
-                                <div class="flex flex-col gap-1 md:pt-6">
-                                    <label class="flex items-center cursor-pointer text-[10px] uppercase font-bold">
-                                        <div class="relative w-8 h-4 mr-3">
-                                            <input type="checkbox" name="subject_to_finance" class="sr-only peer">
-                                            <div class="w-full h-full bg-gray-200 rounded-full peer-checked:bg-[#C5A059] transition-colors"></div>
-                                            <div class="absolute top-1 left-1 w-2 h-2 bg-white rounded-full transition-transform peer-checked:translate-x-4"></div>
-                                        </div>
-                                        Subject to Finance
-                                    </label>
-                                    <label class="flex items-center cursor-pointer text-[10px] uppercase font-bold">
-                                        <div class="relative w-8 h-4 mr-3">
-                                            <input type="checkbox" name="subject_to_inspection" class="sr-only peer">
-                                            <div class="w-full h-full bg-gray-200 rounded-full peer-checked:bg-[#C5A059] transition-colors"></div>
-                                            <div class="absolute top-1 left-1 w-2 h-2 bg-white rounded-full transition-transform peer-checked:translate-x-4"></div>
-                                        </div>
-                                        Subject to Inspection
-                                    </label>
-                                </div>
+                            <div>
+                                <label class="block text-[10px] uppercase font-bold mb-2">Settlement Period</label>
+                                <select name="settlement" class="w-full border-b border-gray-300 py-1 bg-transparent outline-none text-sm">
+                                    <option value="30 Days">30 Days</option>
+                                    <option value="60 Days" selected>60 Days</option>
+                                    <option value="90 Days">90 Days</option>
+                                </select>
+                            </div>
+                            <div class="flex flex-col gap-4 pt-4">
+                                <label class="flex items-center cursor-pointer text-[10px] uppercase font-bold">
+                                    <div class="relative w-8 h-4 mr-3">
+                                        <input type="checkbox" name="subject_to_finance" class="sr-only peer">
+                                        <div class="w-full h-full bg-gray-200 rounded-full peer-checked:bg-[#C5A059] transition-colors"></div>
+                                        <div class="absolute top-1 left-1 w-2 h-2 bg-white rounded-full transition-transform peer-checked:translate-x-4"></div>
+                                    </div>
+                                    Subject to Finance
+                                </label>
+                                <label class="flex items-center cursor-pointer text-[10px] uppercase font-bold">
+                                    <div class="relative w-8 h-4 mr-3">
+                                        <input type="checkbox" name="subject_to_inspection" class="sr-only peer">
+                                        <div class="w-full h-full bg-gray-200 rounded-full peer-checked:bg-[#C5A059] transition-colors"></div>
+                                        <div class="absolute top-1 left-1 w-2 h-2 bg-white rounded-full transition-transform peer-checked:translate-x-4"></div>
+                                    </div>
+                                    Subject to Inspection
+                                </label>
                             </div>
                         </div>
                     </div>
                     
                     <div class="mt-8">
                         <label class="block text-[10px] uppercase font-bold text-gray-400 mb-2">Comments</label>
-                        <textarea name="comments" rows="2" class="w-full border-b border-gray-200 py-1 bg-transparent outline-none focus:border-[#C5A059] resize-none text-sm"></textarea>
+                        <textarea name="comments" rows="1" class="w-full border-b border-gray-200 py-1 bg-transparent outline-none focus:border-[#C5A059] resize-none text-sm"></textarea>
                     </div>
 
                     <div class="mt-6 text-center">
                         <div id="statusMsg" class="mb-4 text-sm font-semibold"></div>
                         <button type="submit" id="submitBtn" class="btn-gold w-full py-5 text-black font-bold text-xs uppercase tracking-[0.3em] shadow-xl transform transition active:scale-95">
-                            Submit Formal Expression of Interest
+                            Submit
                         </button>
                     </div>
                 </form>
